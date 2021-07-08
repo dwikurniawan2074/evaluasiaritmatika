@@ -18,7 +18,15 @@ int main(){
             if(!(isdigit(str[i+1]))){
                 str1+=' ';
             }
+        
+        }else if(str[i]=='-'){
+            if(!(isdigit(str[i+1])) && !(isdigit(str[i-1]))){
+                str1+="-1 * ";
+            }else{
+                str1+="- ";
+            }
         }
+        
         
       
   
