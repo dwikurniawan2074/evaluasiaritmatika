@@ -12,6 +12,14 @@ int main(){
     getline(cin, str);
     int a = str.length();
     
+    for(int i=0;i<a;i++){
+        if(isdigit(str[i])){
+            str1+=str[i];
+            if(!(isdigit(str[i+1]))){
+                str1+=' ';
+            }
+        }
+        
       
   
     return 0;
