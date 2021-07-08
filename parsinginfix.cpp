@@ -25,10 +25,17 @@ int main(){
             }else{
                 str1+="- ";
             }
-        }
+        
+        }else if(!(isdigit(str[i]))){
+        	if(str[i]!=' '){	
+            str1+=str[i];
+            str1+=' ';
+            }
+		}
+    }
         
         
-      
+    cout << str1;
   
     return 0;
 }
