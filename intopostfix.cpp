@@ -97,3 +97,53 @@ void MasukkanData(){
         temp.clear();
     }
 }
+
+void InfixtoPostfix(){
+    stack <string> temp2;
+    int i = 0;
+    for(remake = infix.begin(); remake != infix.end() ; remake++, i++){
+        if(isdigit(infix[i].back())){
+            postfix.push_back(infix[i]);
+            continue;
+        }
+        if(infix[i] == "("){
+            
+            temp2.push(infix[i]);
+            continue;
+        }
+        if(infix[i] == ")"){
+            while(!temp2.empty() &&
+                  (temp2.top() != "(")){
+                
+                string toPush = temp2.top();
+                postfix.push_back(toPush);
+                temp2.pop();
+            }
+            temp2.pop();
+            continue;
+        }
+        if(oibreoir(infix[i][0])){
+            if(temp2.empty() ||
+               temp2.top() == "("){
+               temp2.push(infix[i]);
+            }
+            else{
+                while(!temp2.empty() &&
+                     (temp2.top() != "(") &&
+                      grande(infix[i], temp2.top())){
+                    
+                    string toPush = temp2.top();
+                    postfix.push_back(toPush);
+                    temp2.pop();
+                }
+                temp2.push(infix[i] );
+            }
+            continue;
+        }
+    }
+    while(!temp2.empty()){
+        string toPush = temp2.top();
+        postfix.push_back(toPush);
+        temp2.pop();
+    }
+}
