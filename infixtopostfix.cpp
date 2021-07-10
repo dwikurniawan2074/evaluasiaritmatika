@@ -28,3 +28,26 @@ int main(){
   
   return 0;
 }
+
+int isOpr(char ch) {
+	if(ch=='+' || ch=='-')
+		return 1;
+	elif(ch=='*' || ch=='/' || ch=='%')
+		return 2;
+	else
+		return 0;
+}
+
+bool isNum(char ch) {
+	string idt = "0123456789";
+	bool cek = false;
+	
+	for(int i=0; i<10; i++) {
+		if(ch==idt[i]) {
+			cek = true;
+			break;
+		}
+	}
+	
+	return cek;
+}
