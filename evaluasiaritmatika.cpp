@@ -139,6 +139,21 @@ void inToPost(string str, int len) {
 	delete &stk;
 }
 
+int hitung(int a, int b, char opr) {
+	if(opr=='+')
+		return a + b;
+	elif(opr=='-')
+		return a - b;
+	elif(opr=='*')
+		return a * b;
+	elif(opr=='/')
+		return a / b;
+	elif(opr=='%')
+		return a % b;
+	else
+		return 0;
+}
+
 int isOpr(char ch) {
 	if(ch=='+' || ch=='-')
 		return 1;
