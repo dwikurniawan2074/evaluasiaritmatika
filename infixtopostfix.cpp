@@ -8,6 +8,19 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#define elif else if
+#define maks 100
+using namespace std;
+
+
+void inToPost(string str, int len);
+int isOpr(char ch);
+bool isNum(char ch);
+
+struct stack{
+	char ch[maks];
+	int index;
+};
 
 int main(){
   
