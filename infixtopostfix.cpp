@@ -119,7 +119,7 @@ void inToPost(string str, int len) {
 		stk.index--;
 	}
 	
-	cout << postfix;
+	cout << "Print : " << postfix;
 }
 
 int isOpr(char ch) {
