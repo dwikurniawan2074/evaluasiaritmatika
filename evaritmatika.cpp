@@ -26,3 +26,29 @@ int putFirst(string x){
     }
     return 0;
 }
+
+bool large(string x, string y){
+    int num1, num2;
+    num1 = putFirst(x);
+    num2 = putFirst(y);
+    return num1 <= num2;
+}
+
+double run (double x, double y, string n){
+    if(n == "+"){
+        return x+y;
+    }
+    else if(n == "-"){
+        return x-y;
+    }
+    else if(n == "*"){
+        return x*y;
+    }
+    else if(n == "/"){
+        return x/y;
+    }
+    else if(n == "%"){
+        return (int) x % (int) y;
+    }
+    return 0;
+}
