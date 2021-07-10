@@ -139,6 +139,48 @@ void inToPost(string str, int len) {
 	delete &stk;
 }
 
+void postEval(string str, int len) {
+	struct stack stk;
+	stk.index = 0; // intial index stack
+	int num[2], total;
+	vector<char> temp;
+	
+	for(int i=0; i<len; i++) {
+		if(isalnum(str[i])) {
+			stk.ch[stk.index] = str[i];
+			stk.index++;
+		}
+		else {
+			for(int x=1; x>=0; x--) {
+				for(int y=0; y<index; y++) {
+					if(stk.ch[stk.index-1]==edt[y].ch) {
+						num[x] = edt[y].num;
+						temp.push_back(edt[y].ch);
+						cout << edt[y].ch << " " << edt[y].num << endl;
+					}
+				}
+				stk.index--;
+			}
+			
+			total = hitung(num[0], num[1], str[i]);
+			stk.ch[stk.index] = temp.back();
+			stk.index++;
+			for(int x=0; x<index; x++) {
+				if(temp.back()==edt[x].ch) {
+					edt[x].num = total;
+					temp.pop_back();
+					break;
+				}
+			}
+			
+			cout << "total : " << total << endl;
+		}
+	}
+	
+	cout << total;
+	delete &stk;
+}
+
 int hitung(int a, int b, char opr) {
 	if(opr=='+')
 		return a + b;
