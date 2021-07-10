@@ -29,9 +29,46 @@ struct stack{
 	int index;
 };
 
-int main(){
-  
-  //enter code here
+int main() {
+	string infix, str = "";
+    int len;
+    
+    getline(cin, infix);
+    
+    len = infix.size();
+    
+    for(int i=0; i<len; i++) {
+    	if(isalnum(infix[i])) {
+    		str += infix[i];
+		}
+		else if(infix[i]=='-') {
+    		if(isalnum(infix[i+1])) {
+    			str += infix[i];
+			}
+			else if(infix[i+1]=='(') {
+				if(isalnum(infix[i-1])) {
+					str += infix[i];
+				}
+				else {
+					str += "-1*";
+				}
+			}
+			else {
+				if(infix[i+1]!=' ')
+					str += "-1";
+				else
+					str += infix[i];
+			}
+		}
+		else {
+			if(infix[i]!=' ') {
+				str += infix[i];
+			}
+		}
+	}
+	
+	inToPost(str, str.size());
+
 }
 
 void inToPost(string str, int len) {
