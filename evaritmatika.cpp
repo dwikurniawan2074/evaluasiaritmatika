@@ -149,3 +149,30 @@ void toPostfix(){
         stk.pop();
     }
 }
+
+void result(){
+    stack <string> stk;
+    int i = 0;
+    double res;
+    for(iter = postfix.begin(); iter != postfix.end() ; iter++, i++){
+        if(isdigit(postfix[i].back())){
+            stk.push(postfix[i]);
+        }
+        else{
+            double A = strtod((stk.top()).c_str(), NULL);
+            stk.pop();
+            double B = strtod((stk.top()).c_str(), NULL);
+            stk.pop();
+            res = run(B, A, postfix[i]);
+            stk.push(to_string(res));
+        }
+    }
+    res = strtod((stk.top()).c_str(), NULL);
+    cout << res << endl;
+}
+
+int main(){
+    input();
+    toPostfix();
+    result();
+}
