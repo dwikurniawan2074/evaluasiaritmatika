@@ -19,37 +19,35 @@ int main(){
                 str1+=' ';
             }
         
-        }else if(str[i]=='-'){
-            if(isdigit(str[i+1])){
-		    str1+=str[i];
-		    if(i!=0)
-			    str+=' ';
-	    }else if(str[i+1]=='('){
-		    if(isdigit(str[i+1])){
-			    str1+=str[i];
-			    str1+=' ';
-		    }else{
-			    str1+="-1 * ";
-		    }
-	    }else{
-		    if(str[i+1]!=' ')
-			    str1+="-1";
-		    else
-			    str1+=str[i];
-		    str1+=' ';
-	    }
-		    
-        
-        }else if(!(isdigit(str[i]))){   // perlu perbaikan
-        	if(str[i]!=' '){	
-            str1+=str[i];
-            str1+=' ';
+        }else if (!(isdigit(str[i])) && str[i] != ' ')
+        {
+            str1 += str[i];
+            if (i == 0 && isdigit(str[i + 1]) && str[i] == '-')
+            {
+                str1 += "";
             }
-		}
-    }
-        
-        
-    cout << str1;
-  
-    return 0;
+            else if (str[i] == '-' && str[i + 1] == '(' && isdigit(str[i - 2]))
+            {
+                str1 += "1 * ";
+            }
+            else if (str[i] == '-' && isdigit(str[i + 1]) && !(isdigit(str[i - 1])))
+            {
+                str1 += "1 * ";
+            }
+            else if (str[i] == '-' && str[i - 2] != ')' && str[i - 1] != ')' && str[i + 1] == '(' && !(isdigit(str[3 - 2])))
+            {
+                str1 += "1 * ";
+            }
+            else if (i == ((int)str.length()) - 1)
+            {
+                str1 += "";
+            }
+            else
+            {
+                str1 += " ";
+            }
+        }
+	}
+    cout << "Print : " << str1;
+
 }
