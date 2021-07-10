@@ -19,6 +19,16 @@ bool isNum(char ch);
 void postEval(string str, int len);
 int hitung(int a, int b, char opr);
 
+struct enc{
+	char ch;
+	int num;
+} edt[maks];
+
+struct stack{
+	char ch[maks];
+	int index;
+};
+
 int main(){
   
   //enter code here
