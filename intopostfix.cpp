@@ -147,3 +147,12 @@ void InfixtoPostfix(){
         temp2.pop();
     }
 }
+
+int main(){
+    MasukkanData();
+    InfixtoPostfix();
+    cout << "Print : ";
+    for(itu = postfix.begin(); itu != postfix.end() ; itu++){
+        cout << *itu << " ";
+    }
+}
